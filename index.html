@@ -1,450 +1,693 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f6f1">
-  <meta name="description" content="Inscreva-se no Encontro de Ideias 2026.">
-  <title>Inscrição | Encontro de Ideias 2026</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Inscrição no evento | Conexões</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f2f2f2;
-      --ink: #222;
-      --muted: #666;
-      --line: #ccc;
-      --green: #356b9a;
-      --lime: #dceaf5;
-      --coral: #e7a15b;
-      --white: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
+      --ink: #1b3029;
+      --muted: #68766f;
+      --green: #245c49;
+      --green-dark: #194533;
+      --lime: #d7ed9f;
+      --paper: #fffefa;
+      --line: #dce4dc;
+      --background: #f3f6f0;
+      --danger: #a63d35;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--ink); background: var(--paper); }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 9%, rgba(215, 237, 159, .48), transparent 28rem),
+        var(--background);
+    }
 
-    .page-shell {
+    .page {
       width: min(1120px, calc(100% - 48px));
       margin: 0 auto;
+      padding: 28px 0 52px;
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 84px;
-      border-bottom: 1px solid var(--line);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      margin-bottom: 48px;
     }
 
-    .wordmark { display: flex; align-items: center; gap: 10px; }
-
-    .mark {
-      display: grid;
-      width: 30px;
-      aspect-ratio: 1;
-      place-items: center;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: var(--ink);
-      background: var(--lime);
-      font-size: 1rem;
-      line-height: 1;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -.03em;
+      text-decoration: none;
     }
 
-    .edition { color: var(--muted); }
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--green-dark);
+      background: var(--lime);
+      font-size: 19px;
+    }
+
+    .topbar-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     main {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      justify-items: center;
-      padding: 48px 0 64px;
+      grid-template-columns: minmax(0, .94fr) minmax(390px, 1.06fr);
+      overflow: hidden;
+      min-height: 610px;
+      border: 1px solid rgba(220, 228, 220, .8);
+      border-radius: 26px;
+      background: var(--paper);
+      box-shadow: 0 24px 70px rgba(37, 61, 48, .09);
     }
 
-    .intro { max-width: 600px; text-align: center; }
+    .intro {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 50px 48px;
+      color: #f8fff8;
+      background: var(--green);
+    }
+
+    .intro::before,
+    .intro::after {
+      position: absolute;
+      content: "";
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .intro::before {
+      right: -155px;
+      bottom: 60px;
+      width: 400px;
+      height: 400px;
+    }
+
+    .intro::after {
+      right: -105px;
+      bottom: 110px;
+      width: 300px;
+      height: 300px;
+    }
 
     .eyebrow {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 22px;
-      color: var(--green);
-      font-size: .76rem;
-      font-weight: 800;
-      letter-spacing: .13em;
+      gap: 8px;
+      color: #d7ed9f;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
 
     .eyebrow::before {
-      width: 24px;
-      height: 3px;
-      background: var(--coral);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
       content: "";
     }
 
     h1 {
-      max-width: 600px;
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(2.4rem, 6vw, 3.5rem);
-      font-weight: 700;
-      letter-spacing: 0;
-      line-height: .98;
+      max-width: 440px;
+      margin: 25px 0 17px;
+      font-size: clamp(40px, 5vw, 58px);
+      font-weight: 650;
+      letter-spacing: -.065em;
+      line-height: 1.04;
     }
-
-    h1 span { color: var(--green); font-style: normal; }
 
     .intro-copy {
-      max-width: 480px;
-      margin: 16px auto 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.65;
+      max-width: 360px;
+      margin: 0;
+      color: rgba(248, 255, 248, .77);
+      font-size: 15px;
+      line-height: 1.75;
     }
 
-    .event-note {
+    .event-meta {
+      position: relative;
+      z-index: 1;
       display: flex;
-      align-items: center;
-      gap: 14px;
-      justify-content: center;
-      margin-top: 22px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      font-size: .88rem;
-      line-height: 1.5;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .2);
     }
 
-    .event-date {
-      display: grid;
-      width: 50px;
-      height: 54px;
-      flex: 0 0 auto;
-      place-content: center;
-      color: var(--ink);
-      background: var(--lime);
-      font-size: .68rem;
-      font-weight: 800;
-      text-align: center;
+    .meta-label {
+      display: block;
+      margin-bottom: 7px;
+      color: rgba(248, 255, 248, .58);
+      font-size: 11px;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .event-date strong { font-size: 1.25rem; line-height: 1.05; }
-    .event-note p { margin: 0; }
-    .event-note span { color: var(--muted); }
+    .meta-value {
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .intro-decoration {
+      position: absolute;
+      right: 48px;
+      bottom: 75px;
+      z-index: 1;
+      display: grid;
+      width: 84px;
+      height: 84px;
+      place-items: center;
+      border: 1px solid rgba(215, 237, 159, .42);
+      border-radius: 25px;
+      color: var(--lime);
+      font-size: 38px;
+      transform: rotate(12deg);
+    }
 
     .form-panel {
-      position: relative;
-      width: min(100%, 560px);
-      padding: 26px;
-      border: 1px solid var(--line);
-      background: var(--white);
+      padding: 50px clamp(28px, 5vw, 62px);
     }
 
     .form-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
-    h2 { margin: 0; font-size: 1.3rem; letter-spacing: 0; }
+    .form-heading h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -.04em;
+    }
 
-    .step {
+    .form-heading p {
+      margin: 0;
       color: var(--muted);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      white-space: nowrap;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    .field { margin-top: 19px; }
+    .field {
+      margin-bottom: 19px;
+    }
 
     label {
       display: block;
       margin-bottom: 8px;
-      font-size: .82rem;
-      font-weight: 750;
+      color: #30453b;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    input, select {
+    .optional {
+      color: #859189;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    input,
+    select {
       width: 100%;
-      min-height: 49px;
+      min-height: 46px;
       padding: 0 13px;
-      border: 1px solid #cbd2ca;
-      border-radius: 2px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
       color: var(--ink);
-      background: var(--white);
+      background-color: #fff;
       font: inherit;
-      font-size: .93rem;
+      font-size: 13px;
+      transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
     }
 
-    input::placeholder { color: #8a958e; }
-
-    input:focus-visible, select:focus-visible, button:focus-visible {
-      outline: 3px solid rgba(23, 107, 85, .28);
-      outline-offset: 2px;
-      border-color: var(--green);
+    input::placeholder {
+      color: #9aa59e;
     }
 
-    select:disabled, input:disabled {
-      color: #78837c;
-      background: #eef0eb;
+    input:focus,
+    select:focus {
+      border-color: #4b866e;
+      box-shadow: 0 0 0 3px rgba(75, 134, 110, .13);
+    }
+
+    select:disabled {
+      color: #8b9690;
+      background-color: #f5f7f4;
       cursor: not-allowed;
     }
 
-    .city-meta {
-      min-height: 20px;
+    .field-hint {
       margin: 7px 0 0;
       color: var(--muted);
-      font-size: .76rem;
-      line-height: 1.45;
-    }
-
-    .error { color: #a33d2b; }
-
-    button {
-      display: flex;
-      width: 100%;
-      min-height: 52px;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 28px;
-      padding: 0 17px;
-      border: 0;
-      border-radius: 2px;
-      color: var(--white);
-      background: var(--green);
-      font: inherit;
-      font-size: .92rem;
-      font-weight: 750;
-      cursor: pointer;
-      transition: background-color .18s ease, transform .18s ease;
-    }
-
-    button:hover { background: #28577f; }
-    button span { color: var(--lime); font-size: 1.2rem; }
-
-    .result {
-      margin: 18px 0 0;
-      padding: 13px 15px;
-      border-left: 3px solid var(--green);
-      color: var(--ink);
-      background: #edf4e7;
-      font-size: .88rem;
+      font-size: 11px;
       line-height: 1.5;
     }
 
-    .result:empty { display: none; }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0 28px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .73rem;
+    .field-hint.error,
+    .form-message.error {
+      color: var(--danger);
     }
 
-    @media (max-width: 760px) {
-      .page-shell { width: min(100% - 36px, 520px); }
-      .topbar { min-height: 68px; }
-      main { grid-template-columns: 1fr; gap: 30px; padding: 42px 0; }
-      h1 { font-size: clamp(2.4rem, 12vw, 3.5rem); }
-      .intro-copy { margin-top: 18px; }
-      .event-note { margin-top: 26px; }
-      .form-panel { padding: 25px 21px; }
-      footer { flex-wrap: wrap; }
+    .city-tools {
+      display: none;
+      margin: -5px 0 15px;
+    }
+
+    .city-tools.visible {
+      display: block;
+    }
+
+    .city-tools input {
+      min-height: 40px;
+      padding-left: 36px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' fill='none' viewBox='0 0 24 24' stroke='%2377837b' stroke-width='1.8'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3'/%3E%3Cpath d='m16 16 4 4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 12px center;
+      background-size: 16px;
+    }
+
+    .form-message {
+      min-height: 18px;
+      margin: 8px 0 15px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .submit-button {
+      display: flex;
+      width: 100%;
+      min-height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--green);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background .16s ease, transform .16s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--green-dark);
+    }
+
+    .submit-button:active {
+      transform: translateY(1px);
+    }
+
+    .submit-button:focus-visible {
+      outline: 3px solid rgba(75, 134, 110, .35);
+      outline-offset: 3px;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 16px;
+      padding: 13px 15px;
+      border: 1px solid #d5e8ca;
+      border-radius: 9px;
+      color: #285a3b;
+      background: #f1f8eb;
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+
+    .success-message.visible {
+      display: block;
+    }
+
+    .footer-note {
+      margin: 18px 0 0;
+      color: #87918a;
+      font-size: 10px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .page {
+        width: min(600px, calc(100% - 32px));
+        padding-top: 20px;
+      }
+
+      .topbar {
+        margin-bottom: 24px;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .intro {
+        min-height: 350px;
+        padding: 34px 32px;
+      }
+
+      .intro-decoration {
+        right: 40px;
+        bottom: 68px;
+        width: 66px;
+        height: 66px;
+        border-radius: 20px;
+        font-size: 30px;
+      }
+
+      h1 {
+        max-width: 360px;
+        margin-top: 18px;
+        font-size: 46px;
+      }
+
+      .event-meta {
+        margin-top: 28px;
+      }
+
+      .form-panel {
+        padding: 36px 32px 40px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        width: calc(100% - 20px);
+        padding-top: 12px;
+      }
+
+      .topbar {
+        margin-bottom: 16px;
+      }
+
+      .topbar-note {
+        font-size: 11px;
+      }
+
+      main {
+        border-radius: 18px;
+      }
+
+      .intro {
+        min-height: 330px;
+        padding: 29px 24px;
+      }
+
+      h1 {
+        max-width: 280px;
+        font-size: 41px;
+      }
+
+      .intro-copy {
+        max-width: 280px;
+        font-size: 13px;
+      }
+
+      .intro-decoration {
+        right: 24px;
+        bottom: 55px;
+        opacity: .8;
+      }
+
+      .event-meta {
+        gap: 20px;
+      }
+
+      .form-panel {
+        padding: 30px 24px 34px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page-shell">
+  <div class="page">
     <header class="topbar">
-      <div class="wordmark"><span class="mark" aria-hidden="true">+</span> Encontro de Ideias</div>
-      <div class="edition">Edição 2026</div>
+      <a class="brand" href="#" aria-label="Conexões, página inicial">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span>conexões<span style="color:#709080">.</span></span>
+      </a>
+      <span class="topbar-note">Um encontro para novas ideias</span>
     </header>
 
     <main>
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Inscrições abertas</p>
-        <h1 id="page-title">Boas ideias<br>começam <span>juntas.</span></h1>
-        <p class="intro-copy">Um dia para trocar experiências, conhecer novas perspectivas e tirar projetos do papel.</p>
-        <div class="event-note">
-          <div class="event-date" aria-label="15 de novembro"><strong>15</strong> NOV</div>
-          <p><strong>Encontro de Ideias 2026</strong><br><span>Um encontro, muitas possibilidades.</span></p>
+      <section class="intro" aria-labelledby="event-title">
+        <div>
+          <span class="eyebrow">Inscrições abertas</span>
+          <h1 id="event-title">Ideias que aproximam.</h1>
+          <p class="intro-copy">
+            Um dia para trocar experiências, descobrir novos caminhos e criar conexões que fazem a diferença.
+          </p>
         </div>
+        <div class="event-meta" aria-label="Informações do evento">
+          <div>
+            <span class="meta-label">Quando</span>
+            <span class="meta-value">15 de novembro</span>
+          </div>
+          <div>
+            <span class="meta-label">Formato</span>
+            <span class="meta-value">Presencial</span>
+          </div>
+        </div>
+        <div class="intro-decoration" aria-hidden="true">✳</div>
       </section>
 
       <section class="form-panel" aria-labelledby="form-title">
         <div class="form-heading">
           <h2 id="form-title">Faça sua inscrição</h2>
-          <span class="step">01 / Participante</span>
+          <p>Preencha seus dados e escolha de onde você vem.</p>
         </div>
-        <form id="registration-form">
+
+        <form id="signup-form">
           <div class="field">
             <label for="name">Nome completo</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
+            <input id="name" name="name" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required>
           </div>
+
           <div class="field">
             <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+            <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
           </div>
+
           <div class="field">
             <label for="state">Estado</label>
             <select id="state" name="state" autocomplete="address-level1" required disabled>
               <option value="">Carregando estados...</option>
             </select>
+            <p id="state-hint" class="field-hint" role="status" aria-live="polite"></p>
           </div>
-          <div class="field">
-            <label for="city-filter">Filtrar cidades</label>
-            <input id="city-filter" type="search" placeholder="Digite para encontrar uma cidade" autocomplete="off" disabled>
-          </div>
+
           <div class="field">
             <label for="city">Cidade</label>
             <select id="city" name="city" autocomplete="address-level2" required disabled>
-              <option value="">Selecione um estado primeiro</option>
+              <option value="">Escolha um estado primeiro</option>
             </select>
-            <p id="city-count" class="city-meta" aria-live="polite">As cidades serão carregadas após a escolha do estado.</p>
           </div>
-          <button type="submit">Inscrever <span aria-hidden="true">↗</span></button>
-          <p id="result" class="result" role="status" aria-live="polite"></p>
+
+          <div class="city-tools" id="city-tools">
+            <label for="city-filter">Filtrar cidades <span class="optional">(opcional)</span></label>
+            <input id="city-filter" type="search" placeholder="Digite o nome da cidade" autocomplete="off">
+          </div>
+
+          <p id="city-count" class="field-hint" role="status" aria-live="polite"></p>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+
+          <button class="submit-button" type="submit">
+            Inscrever <span aria-hidden="true">→</span>
+          </button>
+          <div id="success-message" class="success-message" role="status" aria-live="polite"></div>
+          <p class="footer-note">Seus dados são usados somente para a organização do evento.</p>
         </form>
       </section>
     </main>
-
-    <footer>
-      <span>Encontro de Ideias · 2026</span>
-      <span>Feito para reunir pessoas e projetos.</span>
-    </footer>
   </div>
 
   <script>
+    const STATES_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome";
+    const CITIES_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+
+    const form = document.querySelector("#signup-form");
     const stateSelect = document.querySelector("#state");
     const citySelect = document.querySelector("#city");
-    const cityFilter = document.querySelector("#city-filter");
+    const stateHint = document.querySelector("#state-hint");
     const cityCount = document.querySelector("#city-count");
-    const result = document.querySelector("#result");
-    const form = document.querySelector("#registration-form");
-    const statesUrl = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome";
+    const cityFilter = document.querySelector("#city-filter");
+    const cityTools = document.querySelector("#city-tools");
+    const formMessage = document.querySelector("#form-message");
+    const successMessage = document.querySelector("#success-message");
 
     let cities = [];
-    let selectedStateName = "";
-    let cityRequestId = 0;
 
-    function setCityOptions(items) {
-      const placeholder = document.createElement("option");
-      placeholder.value = "";
-      placeholder.textContent = items.length ? "Selecione uma cidade" : "Nenhuma cidade encontrada";
-      citySelect.replaceChildren(placeholder);
-
-      for (const city of items) {
-        const option = document.createElement("option");
-        option.value = city.nome;
-        option.textContent = city.nome;
-        citySelect.append(option);
-      }
-    }
-
-    function filterCities() {
-      const term = cityFilter.value.trim().toLocaleLowerCase("pt-BR");
-      const matches = cities.filter((city) => city.nome.toLocaleLowerCase("pt-BR").includes(term));
-      setCityOptions(matches);
-      cityCount.textContent = term
-        ? `${matches.length} de ${cities.length} cidades em ${selectedStateName}.`
-        : `${cities.length} cidades em ${selectedStateName}.`;
+    function setPlaceholder(select, text) {
+      select.replaceChildren(new Option(text, ""));
     }
 
     async function loadStates() {
-      try {
-        const response = await fetch(statesUrl);
-        if (!response.ok) throw new Error("Falha ao consultar estados.");
-        const states = await response.json();
-        const placeholder = document.createElement("option");
-        placeholder.value = "";
-        placeholder.textContent = "Selecione um estado";
-        stateSelect.replaceChildren(placeholder);
+      stateSelect.disabled = true;
+      stateHint.textContent = "";
+      setPlaceholder(stateSelect, "Carregando estados...");
 
-        for (const state of states) {
-          const option = document.createElement("option");
-          option.value = state.sigla;
-          option.textContent = state.nome;
-          stateSelect.append(option);
+      try {
+        const response = await fetch(STATES_URL);
+        if (!response.ok) {
+          throw new Error(`Falha ao carregar estados (${response.status}).`);
         }
+
+        const states = await response.json();
+        if (!Array.isArray(states) || states.length === 0) {
+          throw new Error("A API não retornou estados.");
+        }
+
+        const options = [new Option("Selecione um estado", "")];
+        for (const state of states) {
+          options.push(new Option(state.nome, state.sigla));
+        }
+        stateSelect.replaceChildren(...options);
         stateSelect.disabled = false;
-      } catch {
-        stateSelect.replaceChildren(new Option("Não foi possível carregar. Recarregue a página.", ""));
-        cityCount.textContent = "Não foi possível carregar os estados. Verifique sua conexão e recarregue a página.";
-        cityCount.classList.add("error");
+      } catch (error) {
+        console.error("Não foi possível carregar os estados.", error);
+        setPlaceholder(stateSelect, "Não foi possível carregar os estados");
+        stateHint.classList.add("error");
+        stateHint.textContent = "Verifique sua conexão e recarregue a página para tentar novamente.";
       }
     }
 
-    async function loadCities(uf, stateName) {
-      const requestId = ++cityRequestId;
+    function renderCities(query = "") {
+      const normalizedQuery = query.trim().toLocaleLowerCase("pt-BR");
+      const filteredCities = cities.filter((city) =>
+        city.nome.toLocaleLowerCase("pt-BR").includes(normalizedQuery)
+      );
+      const options = [new Option(
+        filteredCities.length > 0 ? "Selecione uma cidade" : "Nenhuma cidade encontrada",
+        ""
+      )];
+
+      for (const city of filteredCities) {
+        options.push(new Option(city.nome, city.nome));
+      }
+
+      citySelect.replaceChildren(...options);
+      citySelect.disabled = filteredCities.length === 0;
+    }
+
+    stateSelect.addEventListener("change", async () => {
+      const stateCode = stateSelect.value;
       cities = [];
-      selectedStateName = stateName;
       cityFilter.value = "";
-      cityFilter.disabled = true;
-      citySelect.disabled = true;
-      citySelect.replaceChildren(new Option("Carregando...", ""));
+      cityTools.classList.toggle("visible", Boolean(stateCode));
+      cityCount.textContent = "";
       cityCount.classList.remove("error");
-      cityCount.textContent = `Carregando cidades de ${stateName}...`;
-      result.textContent = "";
+      successMessage.classList.remove("visible");
+      formMessage.textContent = "";
+      formMessage.classList.remove("error");
 
-      try {
-        const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${encodeURIComponent(uf)}/municipios`);
-        if (!response.ok) throw new Error("Falha ao consultar cidades.");
-        const data = await response.json();
-        if (requestId !== cityRequestId) return;
-
-        cities = data;
-        filterCities();
-        cityFilter.disabled = false;
-        citySelect.disabled = cities.length === 0;
-      } catch {
-        if (requestId !== cityRequestId) return;
-        citySelect.replaceChildren(new Option("Erro ao carregar cidades", ""));
-        cityCount.textContent = `Não foi possível carregar as cidades de ${stateName}. Tente escolher o estado novamente.`;
-        cityCount.classList.add("error");
-      }
-    }
-
-    stateSelect.addEventListener("change", () => {
-      const selected = stateSelect.selectedOptions[0];
-      if (!stateSelect.value) {
-        cityRequestId++;
-        cities = [];
-        cityFilter.value = "";
-        cityFilter.disabled = true;
+      if (!stateCode) {
+        setPlaceholder(citySelect, "Escolha um estado primeiro");
         citySelect.disabled = true;
-        citySelect.replaceChildren(new Option("Selecione um estado primeiro", ""));
-        cityCount.textContent = "As cidades serão carregadas após a escolha do estado.";
+        cityTools.classList.remove("visible");
         return;
       }
-      loadCities(stateSelect.value, selected.textContent);
+
+      citySelect.disabled = true;
+      setPlaceholder(citySelect, "Carregando...");
+      cityCount.textContent = "Buscando cidades...";
+
+      try {
+        const response = await fetch(`${CITIES_URL}/${encodeURIComponent(stateCode)}/municipios`);
+        if (!response.ok) {
+          throw new Error(`Falha ao carregar cidades (${response.status}).`);
+        }
+
+        const result = await response.json();
+        if (!Array.isArray(result)) {
+          throw new Error("A API retornou uma lista de cidades inválida.");
+        }
+
+        if (stateSelect.value !== stateCode) {
+          return;
+        }
+
+        cities = result;
+        renderCities(cityFilter.value);
+        cityCount.textContent = `${cities.length} ${cities.length === 1 ? "cidade" : "cidades"} neste estado.`;
+      } catch (error) {
+        if (stateSelect.value !== stateCode) {
+          return;
+        }
+
+        console.error("Não foi possível carregar as cidades.", error);
+        setPlaceholder(citySelect, "Não foi possível carregar as cidades");
+        citySelect.disabled = true;
+        cityCount.classList.add("error");
+        cityCount.textContent = "Ocorreu um erro ao buscar as cidades. Tente escolher o estado novamente.";
+      }
     });
 
-    cityFilter.addEventListener("input", filterCities);
+    cityFilter.addEventListener("input", () => {
+      renderCities(cityFilter.value);
+    });
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+      successMessage.classList.remove("visible");
+      formMessage.textContent = "";
+      formMessage.classList.remove("error");
 
-      const name = document.querySelector("#name").value.trim();
-      const city = citySelect.value;
-      const uf = stateSelect.value;
-      result.textContent = `${name}, de ${city}/${uf}, inscrito com sucesso.`;
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      if (!stateSelect.value || !citySelect.value || citySelect.disabled) {
+        formMessage.classList.add("error");
+        formMessage.textContent = "Selecione um estado e uma cidade para concluir sua inscrição.";
+        return;
+      }
+
+      const name = form.elements.name.value.trim();
+      const cityName = citySelect.value;
+      const stateCode = stateSelect.value;
+      successMessage.textContent = `${name}, de ${cityName}/${stateCode}, inscrito com sucesso.`;
+      successMessage.classList.add("visible");
     });
 
     loadStates();
